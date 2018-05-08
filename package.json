@@ -1,10 +1,14 @@
 {
   "name": "@singcl/concat",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "concat files based on stream.",
-  "main": "concat.js",
+  "source": "concat.js",
+  "main": "dist/concat.js",
+  "module": "dist/comcat.m.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "bundle": "microbundle",
+    "release": "npm run -s bundle && git commit -am $npm_package_version && git tag $npm_package_version && git push && git push --tags && npm publish"
   },
   "repository": {
     "type": "git",
@@ -20,5 +24,8 @@
   "bugs": {
     "url": "https://github.com/singcl/concat/issues"
   },
-  "homepage": "https://github.com/singcl/concat#readme"
+  "homepage": "https://github.com/singcl/concat#readme",
+  "devDependencies": {
+    "microbundle": "^0.4.4"
+  }
 }
