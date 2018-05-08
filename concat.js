@@ -38,7 +38,7 @@ function concat(targetDir, destination, callback) {
             fileReadStream.pipe(fileWriteStream, { end: false })
     
             fileReadStream.on('data', function(chunk) {
-                console.log('Received ' + chunk.length + ' bytes of data.');
+                // console.log('Received ' + chunk.length + ' bytes of ' + currentFile);
             })
     
             fileReadStream.on('end', function() {
