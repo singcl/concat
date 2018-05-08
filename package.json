@@ -1,0 +1,24 @@
+{
+  "name": "concat",
+  "version": "0.0.1",
+  "description": "concat files based on stream.",
+  "main": "concat.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/singcl/concat.git"
+  },
+  "keywords": [
+    "concat",
+    "files",
+    "stream"
+  ],
+  "author": "singcl",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/singcl/concat/issues"
+  },
+  "homepage": "https://github.com/singcl/concat#readme"
+}
