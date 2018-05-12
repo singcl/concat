@@ -5,6 +5,7 @@
   "source": "concat.js",
   "main": "dist/concat.js",
   "module": "dist/concat.m.js",
+  "types": "index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "bundle": "microbundle",

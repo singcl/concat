@@ -1,14 +1,8 @@
 import fs = require('fs');
 import path = require('path');
-/* tslint:disable: callable-types only-arrow-functions no-console*/
+/* tslint:disable: callable-types only-arrow-functions */
 
-let concat:  (
-    targetDir: string,
-    destination: string,
-    callback: (err: any) => void,
-) => void;
-
-concat = function(targetDir, destination, callback) {
+function concat(targetDir: string, destination: string, callback: (err: any) => void): void {
     fs.readdir(targetDir, function(err, files) {
         if (err) {
             typeof callback === 'function' ? callback(err) : console.error(err);
@@ -34,13 +28,13 @@ concat = function(targetDir, destination, callback) {
         createSteamFile(files);
 
         // 递归 从每个文件创建readStream pipe 到同一个 writeStream
-        function createSteamFile(files: string[]) {
-            if (files.length === 0) {
+        function createSteamFile(files1: string[]) {
+            if (files1.length === 0) {
                 fileWriteStream.end();
                 return;
             }
 
-            const currentFile = path.join(targetDir, files.shift() || '');
+            const currentFile = path.join(targetDir, files1.shift() || '');
             fileReadStream = fs.createReadStream(currentFile);
             fileReadStream.pipe(fileWriteStream, { end: false });
 
@@ -50,7 +44,7 @@ concat = function(targetDir, destination, callback) {
 
             fileReadStream.on('end', function() {
                 console.log(currentFile + ' has appended to writeStream.');
-                createSteamFile(files);
+                createSteamFile(files1);
             });
 
             fileReadStream.on('error', function(err2) {
@@ -60,6 +54,6 @@ concat = function(targetDir, destination, callback) {
             });
         }
     });
-};
+}
 
 export = concat;
