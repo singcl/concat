@@ -19,6 +19,9 @@ npm i @singcl/concat -S
     - err callback的唯一参数，没有错误时候该参数值为null
 
 **Example:**
+The example Dir is like this:
+
+![example dir](./example.png)
 ```js
 var concat = require('@singcl/concat')
 
