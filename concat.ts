@@ -15,8 +15,8 @@ concat = function(targetDir, destination, callback) {
             return;
         }
 
-        let fileReadStream;
-        const fileWriteStream = fs.createWriteStream(destination);
+        let fileReadStream: fs.ReadStream;
+        const fileWriteStream: fs.WriteStream = fs.createWriteStream(destination);
 
         fileWriteStream.on('close', function() {
             if (typeof callback === 'function') { callback(null); }
@@ -31,10 +31,10 @@ concat = function(targetDir, destination, callback) {
         });
 
         // Invoke createSteamFile
-        createSteamFile();
+        createSteamFile(files);
 
         // 递归 从每个文件创建readStream pipe 到同一个 writeStream
-        function createSteamFile() {
+        function createSteamFile(files: string[]) {
             if (files.length === 0) {
                 fileWriteStream.end();
                 return;
@@ -50,7 +50,7 @@ concat = function(targetDir, destination, callback) {
 
             fileReadStream.on('end', function() {
                 console.log(currentFile + ' has appended to writeStream.');
-                createSteamFile();
+                createSteamFile(files);
             });
 
             fileReadStream.on('error', function(err2) {
