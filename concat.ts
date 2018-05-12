@@ -1,18 +1,13 @@
 import fs = require('fs');
 import path = require('path');
 /* tslint:disable: callable-types only-arrow-functions no-console*/
-// 函数类型的接口
-interface IConcat {
-    (
-        targetDir: string,
-        destination: string,
-        callback: (err: any) => void,
-    ): void;
-}
-// 或者写成 类型别名的形式
-// type IConcat = (targetDir: string, destination: string, callback: (err: string) => void) => void;
 
-let concat: IConcat;
+let concat:  (
+    targetDir: string,
+    destination: string,
+    callback: (err: any) => void,
+) => void;
+
 concat = function(targetDir, destination, callback) {
     fs.readdir(targetDir, function(err, files) {
         if (err) {
@@ -45,7 +40,7 @@ concat = function(targetDir, destination, callback) {
                 return;
             }
 
-            const currentFile = path.join(targetDir, files.shift());
+            const currentFile = path.join(targetDir, files.shift() || '');
             fileReadStream = fs.createReadStream(currentFile);
             fileReadStream.pipe(fileWriteStream, { end: false });
 
