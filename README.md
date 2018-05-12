@@ -1,6 +1,13 @@
 # nodejs 基于Stream 的文件合并模块
 
 利用该模块可以很方便的将分片上传的多个chunk合并成一个文件。
+
+[![npm (scoped)](https://img.shields.io/npm/v/@singcl/concat.svg?style=flat-square)](https://www.npmjs.com/package/@singcl/concat)
+![David](https://img.shields.io/david/dev/singcl/concat.svg?style=flat-square)
+![David](https://img.shields.io/david/singcl/concat.svg?style=flat-square)
+![Github file size](https://img.shields.io/github/size/singcl/concat/dist/concat.js.svg?style=flat-square)
+![npm](https://img.shields.io/npm/dm/@singcl/concat.svg?style=flat-square)
+
 ## Install
 ```sh
 npm i @singcl/concat -S
