@@ -1,11 +1,11 @@
 {
   "name": "@singcl/concat",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "concat files based on stream.",
   "source": "concat.js",
   "main": "dist/concat.js",
   "module": "dist/concat.m.js",
-  "types": "index.d.ts",
+  "types": "concat.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "bundle": "tsc && microbundle",
